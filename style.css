@@ -2,6 +2,7 @@
   box-sizing: border-box;
   color: #304E09;
   font-family: 'Bellefair', serif;
+  font-weight: normal;
 }
 
 /* show it when video loads
@@ -64,6 +65,7 @@ body {
 h1 {
   font-size: 3rem;
   margin: 0;
+  -webkit-text-stroke: 1px #304E09;
 }
 
 nav h1 {
