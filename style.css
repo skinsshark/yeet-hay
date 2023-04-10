@@ -185,7 +185,7 @@ svg {
   progress {
     position: fixed;
     transition: 1s ease-in-out opacity;
-    transition-delay: 2s;
+    transition-delay: 0.5s;
     opacity: 1;
     z-index: 9;
   }
