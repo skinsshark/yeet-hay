@@ -176,7 +176,7 @@ svg {
     justify-content: center;
     align-items: center;
     border-radius: 10vw;
-    background: url('./assets/video-preview.png');
+    background: url('./assets/preview.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
