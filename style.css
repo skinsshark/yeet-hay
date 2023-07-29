@@ -5,20 +5,17 @@
   font-weight: normal;
 }
 
-/* showing for testing */
 ::-webkit-scrollbar {
-  /* display: none; */
+  display: none;
 }
 
 html {
   font-size: 10px;
   cursor: default;
   /* IE and Edge */
-  /* -ms-overflow-style: none;   */
+  -ms-overflow-style: none;
   /* Firefox */
-  /* scrollbar-width: none;   */
-  /* border-right: 30px solid #304E09;
-  border-left: 30px solid #304E09; */
+  scrollbar-width: none;
 }
 
 .page-wrapper {
