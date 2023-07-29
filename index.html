@@ -55,11 +55,16 @@
       </p>
     </nav>
     <main>
-      <progress></progress>
-        <video preload="preload" autobuffer="autobuffer">
-          <source src="./assets/movie.mp4" type="video/mp4">
-          <p>ur user agent does not support the html5 video element</p>
-        </video>
+      <div id="promptWrapper">
+        <p id="prompt" class="loading">
+          Loading&mldr;
+        </p>
+        <p class="arrow">&darr;</p>
+      </div>
+      <video preload="preload" autobuffer="autobuffer">
+        <source src="./assets/movie.mp4" type="video/mp4">
+        <p>ur user agent does not support the html5 video element</p>
+      </video>
     </main>
     <article>
       <img src="./assets/health.svg" />

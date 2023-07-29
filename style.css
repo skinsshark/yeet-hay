@@ -5,14 +5,20 @@
   font-weight: normal;
 }
 
-/* show it when video loads
+/* showing for testing */
 ::-webkit-scrollbar {
-  display: none;
-} */
+  /* display: none; */
+}
 
 html {
   font-size: 10px;
   cursor: default;
+  /* IE and Edge */
+  /* -ms-overflow-style: none;   */
+  /* Firefox */
+  /* scrollbar-width: none;   */
+  /* border-right: 30px solid #304E09;
+  border-left: 30px solid #304E09; */
 }
 
 .page-wrapper {
@@ -24,12 +30,14 @@ html {
 /* all screens or small screen if not overriden */
 body {
   scroll-behavior: smooth;
+  overflow-y: hidden;
   margin: 0;
   padding: 5vw 7vw;
   background-color: #fff8dc;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: height 2s ease-in-out; /* for smoothly updating height? */
 }
 
 @media only screen and (min-width: 768px) {
@@ -48,10 +56,6 @@ body {
   body {
     padding: 0 80px;
     overflow: hidden;
-  }
-
-  body.video-loaded  {
-    overflow: scroll;
   }
 }
 
@@ -175,6 +179,7 @@ svg {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     border-radius: 10vw;
     background: url('./assets/preview.png');
     background-size: cover;
@@ -182,16 +187,55 @@ svg {
     background-repeat: no-repeat;
   }
 
-  progress {
-    position: fixed;
-    transition: 1s ease-in-out opacity;
-    transition-delay: 0.5s;
-    opacity: 1;
-    z-index: 9;
+  main #promptWrapper {
+    position: absolute;
+    top: 70px;
+    z-index: 99;
+    transition: 1s opacity ease-in-out;
   }
 
-  .video-loaded progress {
+  main #prompt,
+  #promptWrapper .arrow {
+    font-size: 36px;
+    color: #fff;
+  }
+
+  #promptWrapper .arrow {
+    font-family: math;
     opacity: 0;
+  }
+
+  #prompt.fade-in + .arrow {
+    animation-delay: 0.5s;
+    animation: fade-in 2s ease-in-out forwards;
+  }
+
+  #prompt.loading {
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  #prompt.fade-out {
+    animation: fade-out 0.5s ease-out forwards;
+  }
+
+  #prompt.fade-in {
+    animation: fade-in 2s ease-in-out forwards;
+  }
+
+  @keyframes fade-in {
+    from {opacity: 0}
+    to {opacity: 1}
+  }
+
+  @keyframes fade-out {
+    from {opacity: 1}
+    to {opacity: 0}
+  }
+
+  @keyframes pulse {
+    from { opacity: 1; }
+    50% { opacity: 0.5; }
+    to { opacity: 1; }
   }
 
   video {
@@ -201,6 +245,7 @@ svg {
     object-fit: cover;
     transition: 0.5s ease-in-out opacity;
     opacity: 0;
+    position: absolute;
   }
 
   .video-loaded video {
